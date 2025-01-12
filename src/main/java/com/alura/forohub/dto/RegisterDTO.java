@@ -1,4 +1,15 @@
 package com.alura.forohub.dto;
 
-public record RegisterDTO(String username, String password, String email) {
+import jakarta.validation.constraints.NotBlank;
+
+public record RegisterDTO(
+
+        @NotBlank(message = "El username es obligatorio")
+        String username,
+
+        @NotBlank(message = "La contraseña es obligatoria")
+        String password,
+
+        @NotBlank(message = "El email es obligatorio")
+        String email) {
 }

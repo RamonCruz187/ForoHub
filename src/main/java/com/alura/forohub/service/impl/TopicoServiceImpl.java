@@ -12,6 +12,8 @@ import com.alura.forohub.service.TopicoService;
 import lombok.RequiredArgsConstructor;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -42,8 +44,11 @@ public class TopicoServiceImpl implements TopicoService {
     }
 
     @Override
-    public List<TopicoResponseDTO> listarTopicos() {
+    public Page<TopicoResponseDTO> listarTopicos(Pageable pageable) {
         TopicoMapper mapper = Mappers.getMapper(TopicoMapper.class);
-        return topicoRepository.findAll().stream().map(mapper::toTopicoResponseDTO).toList();
+
+        Page<Topico> topicos = topicoRepository.findAll(pageable);
+
+        return topicos.map(mapper::toTopicoResponseDTO);
     }
 }

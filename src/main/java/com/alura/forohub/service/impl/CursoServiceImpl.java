@@ -8,6 +8,8 @@ import com.alura.forohub.repository.CursoRepository;
 import com.alura.forohub.service.CursoService;
 import lombok.RequiredArgsConstructor;
 import org.mapstruct.factory.Mappers;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,8 +29,11 @@ public class CursoServiceImpl implements CursoService {
     }
 
     @Override
-    public List<CursoResponseDTO> listarCursos() {
+    public Page<CursoResponseDTO> listarCursos(Pageable pageable) {
         CursoMapper mapper = Mappers.getMapper(CursoMapper.class);
-        return cursoRepository.findAll().stream().map(mapper::toCursoResponseDTO).toList();
+
+        Page<Curso> cursos = cursoRepository.findAll(pageable);
+
+        return cursos.map(mapper::toCursoResponseDTO);
     }
 }

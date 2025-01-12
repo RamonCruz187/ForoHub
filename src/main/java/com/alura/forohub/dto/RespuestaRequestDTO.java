@@ -3,14 +3,14 @@ package com.alura.forohub.dto;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-public record TopicoRequestDTO(
+public record RespuestaRequestDTO(
 
-        @NotBlank(message = "El titulo es obligatorio")
-        String titulo,
         @NotBlank(message = "El mensaje es obligatorio")
         String mensaje,
-        @NotNull(message = "El curso es obligatorio")
-        Long cursoId,
+        @NotNull(message = "El topico es obligatorio")
+        Long topicoId,
         @NotNull(message = "El autor es obligatorio")
-        Long autor) {
+        Long autor
+
+) {
 }

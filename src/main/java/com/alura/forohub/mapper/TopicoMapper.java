@@ -22,7 +22,6 @@ public interface TopicoMapper {
     }
 
     @Named("stringToUser")
-
     default Long stringToUser(User user) {
         return user.getId();
     }

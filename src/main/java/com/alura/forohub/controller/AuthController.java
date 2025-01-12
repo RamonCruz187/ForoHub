@@ -8,6 +8,7 @@ import com.alura.forohub.model.User;
 import com.alura.forohub.security.AutenticacionService;
 import com.alura.forohub.security.TokenService;
 import com.alura.forohub.service.UserService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +19,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.util.UriComponentsBuilder;
+
+import java.net.URI;
 
 @RestController
 @RequestMapping("/auth")
@@ -29,12 +33,20 @@ public class AuthController {
     private final UserService userService;
 
     @PostMapping("/register")
-    public ResponseEntity <UserResponseDTO> register (@RequestBody RegisterDTO registerDTO){
-        return ResponseEntity.ok(userService.saveUser(registerDTO));
+    public ResponseEntity <UserResponseDTO> register (@RequestBody @Valid RegisterDTO registerDTO, UriComponentsBuilder uriComponentsBuilder) {
+        UserResponseDTO userResponseDTO = userService.saveUser(registerDTO);
+        URI uri = uriComponentsBuilder
+                .path("/users/{id}")
+                .buildAndExpand(userResponseDTO.id())
+                .toUri();
+
+        return ResponseEntity
+                .created(uri)
+                .body(userResponseDTO);
     }
 
     @PostMapping("/login")
-    public ResponseEntity login(@RequestBody LoginDTO loginDTO) {
+    public ResponseEntity<DatosJWTToken> login(@RequestBody @Valid LoginDTO loginDTO) {
 
         Authentication authToken = new UsernamePasswordAuthenticationToken(loginDTO.username(), loginDTO.password());
         var usuarioAutenticado = authenticationManager.authenticate(authToken);
