@@ -12,5 +12,6 @@ public record TopicoRequestDTO(
         @NotNull(message = "El curso es obligatorio")
         Long cursoId,
         @NotNull(message = "El autor es obligatorio")
-        Long autor) {
+        Long autor
+) {
 }

@@ -14,6 +14,7 @@ public interface TopicoMapper {
 
     @Mapping(source = "curso", target = "curso", qualifiedByName = "CursoToString")
     @Mapping(source = "user", target = "autor", qualifiedByName = "stringToUser")
+    @Mapping(source = "status", target = "status", qualifiedByName = "statusToString")
     TopicoResponseDTO toTopicoResponseDTO(Topico topico);
 
     @Named("CursoToString")
@@ -24,5 +25,14 @@ public interface TopicoMapper {
     @Named("stringToUser")
     default Long stringToUser(User user) {
         return user.getId();
+    }
+
+    @Named("statusToString")
+    default String stringToString(Boolean status) {
+        if (status) {
+            return "Tópico abierto";
+        } else {
+            return "Tópico cerrado";
+        }
     }
 }

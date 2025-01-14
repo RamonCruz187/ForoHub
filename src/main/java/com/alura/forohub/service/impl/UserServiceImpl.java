@@ -19,6 +19,15 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserResponseDTO saveUser(RegisterDTO registerDTO) {
+
+        if (userRepository.existsByUsername(registerDTO.username())) {
+            throw new RuntimeException("El username ya existe");
+        }
+
+        if (userRepository.existsByEmail(registerDTO.email())) {
+            throw new RuntimeException("El email ya existe");
+        }
+
         String encodedPassword = passwordEncoder.encode(registerDTO.password());
         User user = new User(registerDTO.username(), encodedPassword, registerDTO.email());
         userRepository.save(user);

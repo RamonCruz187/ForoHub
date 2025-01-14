@@ -24,6 +24,21 @@ public class TratadorDeErrores {
     }
 
 
+    @ExceptionHandler(NullPointerException.class)
+    public ResponseEntity<DatosErrorValidacion> tratarNullPointerException(NullPointerException e){
+        var errores = new DatosErrorValidacion("error", e.getMessage());
+        return ResponseEntity.badRequest().body(errores);
+    }
+
+
+    @ExceptionHandler(RuntimeException.class)
+    public ResponseEntity<DatosErrorValidacion> tratarErrorGeneral(RuntimeException e){
+        var errores = new DatosErrorValidacion("error", e.getMessage());
+        return ResponseEntity.badRequest().body(errores);
+    }
+
+
+
     private record DatosErrorValidacion(String campo, String error) {
         public DatosErrorValidacion(FieldError error){
             this(error.getField(), error.getDefaultMessage());
