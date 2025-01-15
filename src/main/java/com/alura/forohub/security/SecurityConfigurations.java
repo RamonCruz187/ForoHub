@@ -1,7 +1,6 @@
 package com.alura.forohub.security;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -32,6 +31,8 @@ public class SecurityConfigurations {
                         .requestMatchers(HttpMethod.POST, "/auth/**")
                         .permitAll()
                         .requestMatchers("/test")
+                        .permitAll()
+                        .requestMatchers("/swagger-ui.html", "/v3/api-docs/**", "/swagger-ui/**")
                         .permitAll()
 
                         .anyRequest().authenticated()

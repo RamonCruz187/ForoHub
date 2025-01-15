@@ -51,9 +51,6 @@ public class TokenService {
         return verifier.getSubject();
     }
 
-
-
-
     private Instant generarFechaExpiracion() {
         return LocalDateTime.now().plusHours(2).toInstant(ZoneOffset.of("-05:00"));
     }

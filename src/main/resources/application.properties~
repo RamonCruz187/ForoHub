@@ -9,7 +9,7 @@ spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.format_sql=true
 
 # Flyway config
-spring.flyway.url=${DB_URL}${DB_NAME}
+spring.flyway.url=jdbc:mysql://localhost:3306/forohub
 spring.flyway.user=${DB_USER}
 spring.flyway.password=${DB_USER}
 spring.flyway.enabled=true

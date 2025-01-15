@@ -32,7 +32,6 @@ public class UserServiceImpl implements UserService {
         User user = new User(registerDTO.username(), encodedPassword, registerDTO.email());
         userRepository.save(user);
         return new UserResponseDTO(user.getId(), user.getUsername(), user.getEmail());
-
     }
 
     @Override

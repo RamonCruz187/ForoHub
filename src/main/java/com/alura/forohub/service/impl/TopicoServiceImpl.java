@@ -1,8 +1,9 @@
 package com.alura.forohub.service.impl;
 
-import com.alura.forohub.dto.TopicoRequestDTO;
-import com.alura.forohub.dto.TopicoResponseDTO;
-import com.alura.forohub.dto.TopicoToUpdateDTO;
+import com.alura.forohub.dto.topicos.TopicoConRespuestasDTO;
+import com.alura.forohub.dto.topicos.TopicoRequestDTO;
+import com.alura.forohub.dto.topicos.TopicoResponseDTO;
+import com.alura.forohub.dto.topicos.TopicoToUpdateDTO;
 import com.alura.forohub.mapper.TopicoMapper;
 import com.alura.forohub.model.Topico;
 import com.alura.forohub.repository.CursoRepository;
@@ -48,10 +49,15 @@ public class TopicoServiceImpl implements TopicoService {
     @Override
     public Page<TopicoResponseDTO> listarTopicos(Pageable pageable) {
         TopicoMapper mapper = Mappers.getMapper(TopicoMapper.class);
-
         Page<Topico> topicos = topicoRepository.findAll(pageable);
-
         return topicos.map(mapper::toTopicoResponseDTO);
+    }
+
+    @Override
+    public TopicoConRespuestasDTO TopicoConRespuestas(Long id) {
+        TopicoMapper mapper = Mappers.getMapper(TopicoMapper.class);
+        Topico topico = topicoRepository.findById(id).orElseThrow(() -> new RuntimeException("No existe el tópico con id " + id));
+        return mapper.toTopicoConRespuestasDTO(topico);
     }
 
     @Override
@@ -61,28 +67,22 @@ public class TopicoServiceImpl implements TopicoService {
             return topicoRepository.findById(id).map(mapper::toTopicoResponseDTO).get();
         } catch (Exception e) {
             throw new RuntimeException("No existe el tópico con id " + id);
-
         }
     }
 
     @Override
     public TopicoResponseDTO editarTopico(Long id, TopicoToUpdateDTO topicoToUpdateDTO) {
-
         try {
             Topico topico = topicoRepository.findById(id).get();
-
             if (topicoToUpdateDTO.titulo() != null) {
                 topico.setTitulo(topicoToUpdateDTO.titulo());
             }
-
             if (topicoToUpdateDTO.mensaje() != null) {
                 topico.setMensaje(topicoToUpdateDTO.mensaje());
             }
-
             if (topicoToUpdateDTO.status() != null) {
                 topico.setStatus(topicoToUpdateDTO.status());
             }
-
             topicoRepository.save(topico);
             TopicoMapper mapper = Mappers.getMapper(TopicoMapper.class);
             return mapper.toTopicoResponseDTO(topico);
@@ -101,6 +101,4 @@ public class TopicoServiceImpl implements TopicoService {
             throw new RuntimeException("No existe el tópico con id " + id);
         }
     }
-
-
 }

@@ -2,7 +2,6 @@ package com.alura.forohub.mapper;
 
 import com.alura.forohub.dto.RespuestaRequestDTO;
 import com.alura.forohub.dto.RespuestaResponseDTO;
-import com.alura.forohub.model.Curso;
 import com.alura.forohub.model.Respuesta;
 import com.alura.forohub.model.Topico;
 import com.alura.forohub.model.User;

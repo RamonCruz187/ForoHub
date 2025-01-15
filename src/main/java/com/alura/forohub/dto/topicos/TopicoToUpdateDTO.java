@@ -1,6 +1,4 @@
-package com.alura.forohub.dto;
-
-import jakarta.validation.constraints.NotBlank;
+package com.alura.forohub.dto.topicos;
 
 public record TopicoToUpdateDTO(
 

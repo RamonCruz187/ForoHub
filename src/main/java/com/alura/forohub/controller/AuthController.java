@@ -5,13 +5,13 @@ import com.alura.forohub.dto.LoginDTO;
 import com.alura.forohub.dto.RegisterDTO;
 import com.alura.forohub.dto.UserResponseDTO;
 import com.alura.forohub.model.User;
-import com.alura.forohub.security.AutenticacionService;
 import com.alura.forohub.security.TokenService;
 import com.alura.forohub.service.AuthService;
 import com.alura.forohub.service.UserService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -24,6 +24,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
 
+@Tag(name = "Auth", description = "Endpoints para el registro y la autenticación.")
 @RestController
 @RequestMapping("/auth")
 @RequiredArgsConstructor
@@ -34,6 +35,10 @@ public class AuthController {
     private final UserService userService;
     private final AuthService authService;
 
+    @Operation(
+            summary = "Crear un nuevo usuario.",
+            description = "Permite a un usuario su registro en la plataforma. lo campos son username, email, password y son obligatorios."
+    )
     @PostMapping("/register")
     public ResponseEntity <UserResponseDTO> register (@RequestBody @Valid RegisterDTO registerDTO, UriComponentsBuilder uriComponentsBuilder) {
         UserResponseDTO userResponseDTO = userService.saveUser(registerDTO);
@@ -47,6 +52,10 @@ public class AuthController {
                 .body(userResponseDTO);
     }
 
+    @Operation(
+            summary = "Logearse en la plataforma.",
+            description = "Permite a un usuario su logeo en la plataforma. Los campos son username y password."
+    )
     @PostMapping("/login")
     public ResponseEntity<DatosJWTToken> login(@RequestBody @Valid LoginDTO loginDTO) {
 
