@@ -8,9 +8,9 @@
   
 </div>
 
-<p>
-### Características Principales y Funcionalidades
 
+### Características Principales y Funcionalidades
+<p>
 <li>Robustez: API diseñada y probada en cada uno de sus endpoints.</li>
 <li>Gestión de Usuarios: Permite el registro de nuevos usuarios y el login de los mismos, protegiendo las solicitudes con JWT, asegurando que solo usuarios autenticados puedan crear y visualizar contenido del foro.</li>
 <li>Gestión de Cursos: Los usuarios pueden crear cursos relacionados con los tópicos del foro, pudiendo organizarlos en categorías predefinidas.</li>
@@ -37,6 +37,8 @@
 
 </p>
 <br>
+
+### Imágenes
 </div>
 
 <div align="center">
@@ -55,30 +57,6 @@
   
 ## ✔ BackEnd
 
-#### 👉🏻 Lista de Tareas ✅
-
-- Desarrollo de una API REST con Java y Spring-Boot.
-- Crear una base de datos MySQL y uso deFlyway.
-- Validaciones y excepciones personalizadas.
-- Validación de usuarios con JWT construido y firmado en la aplicación.
-- Documentación de la API en Swagger3.
-- Puntos finales (endpoints) y servicios completamente probados.
-
-
-#### 👉🏻 Documentación 📜
-
-- Puedes leer la documentación de la API: <a href="https://efficient-abundance-production.up.railway.app/swagger-ui/index.html" target="_blank">Aqui</a>.
-
-#### 👉🏻 Construida con 🛠️
-
-![IntelliJ IDEA](https://img.shields.io/badge/IntelliJIDEA-000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white)
-![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white) 
-![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)
-![MySQL](https://img.shields.io/badge/mysql-%23316192.svg?style=for-the-badge&logo=mysqll&logoColor=white)
-![Hibernate](https://img.shields.io/badge/Hibernate-59666C?style=for-the-badge&logo=Hibernate&logoColor=white)
-![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
-![Swagger](https://img.shields.io/badge/-Swagger-%23Clojure?style=for-the-badge&logo=swagger&logoColor=white)
-
 #### 👉🏻 Backend Developer 👨🏻‍💻
 
 | <img src="https://avatars.githubusercontent.com/u/116591941?s=400&u=36611848743b518c839750f490663dc6ab4eda36&v=4" width=100>| 
@@ -90,14 +68,31 @@
 
 <br><br>
 
+#### 👉🏻 Lista de Tareas ✅
 
-#### 👉🏻 Metodología de Desarrollo 🤝
-- La duración de cada sprint es de una semana.
-- Se realizan dos reuniones obligatorias con el líder del equipo por cada sprint.
-- La reunión diaria tiene una duración máxima de 15 minutos.
-- No se permiten tareas sin una épica asociada.
-- Las épicas deben estar respaldadas por historias de usuario.
-- Las tareas se asignan de acuerdo a su estimación.
+- Desarrollo de una API REST con Java y Spring-Boot.
+- Crear una base de datos MySQL y uso deFlyway.
+- Validaciones y excepciones personalizadas.
+- Validación de usuarios con JWT construido y firmado en la aplicación.
+- Documentación de la API en Swagger3.
+- Puntos finales (endpoints) y servicios completamente probados.
+
+<br><br>
+#### 👉🏻 Documentación 📜
+
+- Puedes leer la documentación de la API: <a href="https://efficient-abundance-production.up.railway.app/swagger-ui/index.html" target="_blank">Aqui</a>.
+<br><br>
+#### 👉🏻 Construida con 🛠️
+
+![IntelliJ IDEA](https://img.shields.io/badge/IntelliJIDEA-000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white)
+![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white) 
+![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)
+![MySQL](https://img.shields.io/badge/mysql-%23316192.svg?style=for-the-badge&logo=mysqll&logoColor=white)
+![Hibernate](https://img.shields.io/badge/Hibernate-59666C?style=for-the-badge&logo=Hibernate&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
+![Swagger](https://img.shields.io/badge/-Swagger-%23Clojure?style=for-the-badge&logo=swagger&logoColor=white)
+
+<br><br>
 
 #### 👉🏻 Herramientas utilizadas 🛠️
 ![Jira](https://img.shields.io/badge/TRELLO-%230A0FFF.svg?style=for-the-badge&logo=Trello&logoColor=white)
