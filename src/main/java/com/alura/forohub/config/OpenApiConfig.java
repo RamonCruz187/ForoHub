@@ -10,6 +10,6 @@ public class OpenApiConfig {
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
                 .info(new Info().title("API Documentation").version("1.0"))
-                .addServersItem(new Server().url("https://kosten.up.railway.app"));
+                .addServersItem(new Server().url("https://efficient-abundance-production.up.railway.app/"));
     }
 }
