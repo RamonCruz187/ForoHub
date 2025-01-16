@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.info.License;
+import io.swagger.v3.oas.models.servers.Server;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -35,7 +36,8 @@ public class ForohubApplication {
 						.description("Proyecto realizado con mucha dedicación y esfuerzo por Ramon Cruz. LinkedIn: https://www.linkedin.com/in/ramoncruz187/")
 						.termsOfService("https://swagger.io/terms/")
 						.contact(new io.swagger.v3.oas.models.info.Contact().email("ramon.cruz187@gmail.com"))
-						.license(new License().name("GitHub").url("https://github.com/ramoncruz187")));
+						.license(new License().name("GitHub").url("https://github.com/ramoncruz187")))
+				.addServersItem(new Server().url("https://efficient-abundance-production.up.railway.app/"));
 
 	}
 
