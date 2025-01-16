@@ -9,7 +9,7 @@ public class OpenApiConfig {
     @Bean
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
-                .info(new Info().title("API Documentation").version("1.0"))
+                .info(new Info().title("API Documentation").version("1.1"))
                 .addServersItem(new Server().url("https://efficient-abundance-production.up.railway.app/"));
     }
 }
